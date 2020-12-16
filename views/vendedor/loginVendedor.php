@@ -1,28 +1,20 @@
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login admiv</title>
+    <link rel="stylesheet" href="../../css/style_form.css">
+  </head>
+  <body>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Usuarios</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" href="../../css/styleV.css">
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col l4 m4 s12 red">
-
-            </div>
-            <div class="col l4 m4 s12 center">
-            <img width="250" src="../img/45.png" alt="">
-                <h3 class="center">Baeuty Eyes</h3>
-                <h6 class="center">Inicio de sesion para vendedores</h6>
-
-                <p class="red-text">
+    <div class="opa">
+    <div class="login-box">
+      <img src="../../img/45.png" class="avatar" alt="Avatar Image">
+      <h1>Login Vendedor</h1>
+      <p class="red-error">
                     <?php
                     session_start();
                     if (isset($_SESSION['error'])) {
@@ -31,52 +23,33 @@
                     }
                     ?>
                 </p>
+              
 
-                <p class="green-text">
+                <p class="red-success">
                     <?php
 
-                    if (isset($_SESSION['respuesta'])) {
-                        echo $_SESSION['respuesta'];
-                        unset($_SESSION['respuesta']);
+                    if (isset($_SESSION['vendedor'])) {
+                        echo $_SESSION['vendedor'];
+                        unset($_SESSION['vendedor']);
                     }
                     ?>
                 </p>
-
-
-
+              
+   
                 <form action="../../controllers/LoginControllerVendedor.php" method="POST">
-                    <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                        <input id="rut" type="text" name="rut">
-                        <label for="rut">Rut</label>
-                    </div>
 
+                    <label for="rut">Rut</label>
+                     <input id="rut" type="text" name="rut">
 
-                    <div class="input-field">
-                    <i class="material-icons prefix">https</i>
-                        <input id="clave" type="password" name="clave">
-                        <label for="clave">Clave</label>
-                    </div>
-                  
-                  
-                    
-                    <button name="vendedor" value="vendedor" class="btn blue lighten-2 black-text">Iniciar Sesion</button>
-                              
-                    <p class="center black-text">
-                        <a href="../index.php" class="black-text">Volver</a>
-                    </p>
+                       <label for="clave">Clave</label>
+                    <input id="clave" type="password" name="clave">
+                      
 
-                  
-                    
+                        <button name="vendedor" value="vendedor"  >Iniciar Sesion</button>
 
-                </form>
-
-            </div>
-        </div>
-
+        <a href="../../index.php">Home</a>
+      </form>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-
+  </div>
+  </body>
 </html>
